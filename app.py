@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Estilos CSS personalizados con temática Amarillo Cálido / Ámbar
+# Estilos CSS personalizados con alta visibilidad y contraste en sliders
 st.markdown("""
     <style>
     /* Fondo principal en tono crema/amarillo tenue */
@@ -33,9 +33,31 @@ st.markdown("""
         font-weight: 700 !important;
     }
 
-    /* Estilo de sliders y controles */
-    .stSlider > div > div > div > div {
+    /* --- CORRECCIÓN DE CONTRASTE EN SLIDERS Y NÚMEROS --- */
+    /* Color de la barra de selección del Slider (Track activo) */
+    .stSlider [data-baseweb="slider"] div[role="checkbox"] {
         background-color: #D97706 !important;
+    }
+    
+    /* Color del círculo desplegable del Slider (Thumb) */
+    .stSlider [role="slider"] {
+        background-color: #B45309 !important;
+        border: 2px solid #78350F !important;
+    }
+
+    /* Texto de los números/valores del Slider */
+    .stSlider [data-testid="stWidgetLabel"], 
+    .stSlider div[data-testid="stMarkdownContainer"],
+    .stSlider div[data-baseweb="slider"] + div {
+        color: #78350F !important;
+        font-weight: 800 !important;
+        font-size: 1rem !important;
+    }
+
+    /* Resaltado del número activo dentro del slider */
+    .stSlider [data-testid="stTickBar"] + div {
+        color: #78350F !important;
+        font-weight: bold !important;
     }
 
     /* Botones primarios */
